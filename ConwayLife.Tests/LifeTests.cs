@@ -40,8 +40,23 @@ public class LifeTests
     public void Cell_ShouldDie_By_Underpopulation()
     {
         life.SpawnAliveCell(0, 0);
+
         life.Mutate();
 
         life.grid.cells[0, 0].isAlive.Should().BeFalse();
+    }
+
+    [Test]
+    public void Cell_ShouldDie_By_Overpopulation()
+    {
+        life.SpawnAliveCell(0, 0);
+        life.SpawnAliveCell(0, 1);
+        life.SpawnAliveCell(0, 2);
+        life.SpawnAliveCell(1, 0);
+        life.SpawnAliveCell(1, 1);
+
+        life.Mutate();
+
+        life.grid.cells[0, 1].isAlive.Should().BeFalse();
     }
 }

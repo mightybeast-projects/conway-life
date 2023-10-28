@@ -30,7 +30,7 @@ public class Life
         if (!cell.isAlive)
             return;
 
-        if (cell.AliveNeighbours < 2)
+        if (cell.AliveNeighbours < 2 || cell.AliveNeighbours > 3)
             nextGenerationGrid.cells[cell.i, cell.j].isAlive = false;
     }
 }
