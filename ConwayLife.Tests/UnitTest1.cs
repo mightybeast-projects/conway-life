@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace ConwayLife.Tests;
 
 public class Tests
@@ -10,6 +12,7 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Assert.Pass();
+        var a = 7;
+        a.Should().Be(7);
     }
 }

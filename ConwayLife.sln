@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwayLife.Logic", "ConwayLife.Logic\ConwayLife.Logic.csproj", "{9F371BE5-C4ED-4CB7-8EE9-7E04A30BC727}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwayLife.Tests", "ConwayLife.Tests\ConwayLife.Tests.csproj", "{A61834C9-0531-4A6A-A5F5-794860F1FBD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwayLife.Desktop", "ConwayLife.Desktop\ConwayLife.Desktop.csproj", "{039B0C5B-13F0-4AA9-ACAD-58330B3F5EB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +16,19 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F371BE5-C4ED-4CB7-8EE9-7E04A30BC727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F371BE5-C4ED-4CB7-8EE9-7E04A30BC727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F371BE5-C4ED-4CB7-8EE9-7E04A30BC727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F371BE5-C4ED-4CB7-8EE9-7E04A30BC727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A61834C9-0531-4A6A-A5F5-794860F1FBD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A61834C9-0531-4A6A-A5F5-794860F1FBD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A61834C9-0531-4A6A-A5F5-794860F1FBD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A61834C9-0531-4A6A-A5F5-794860F1FBD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039B0C5B-13F0-4AA9-ACAD-58330B3F5EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039B0C5B-13F0-4AA9-ACAD-58330B3F5EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039B0C5B-13F0-4AA9-ACAD-58330B3F5EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039B0C5B-13F0-4AA9-ACAD-58330B3F5EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
