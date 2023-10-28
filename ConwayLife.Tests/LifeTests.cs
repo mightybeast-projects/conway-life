@@ -59,4 +59,32 @@ public class LifeTests
 
         life.grid.cells[0, 1].isAlive.Should().BeFalse();
     }
+
+    [Test]
+    public void Cell_ShouldBe_StillAlive()
+    {
+        life.SpawnAliveCell(0, 0);
+        life.SpawnAliveCell(0, 1);
+        life.SpawnAliveCell(1, 0);
+        life.SpawnAliveCell(1, 1);
+
+        life.Mutate();
+
+        life.grid.cells[0, 0].isAlive.Should().BeTrue();
+        life.grid.cells[0, 1].isAlive.Should().BeTrue();
+        life.grid.cells[1, 0].isAlive.Should().BeTrue();
+        life.grid.cells[1, 1].isAlive.Should().BeTrue();
+    }
+
+    [Test]
+    public void Cell_ShouldBe_Alive_By_Reproduction()
+    {
+        life.SpawnAliveCell(0, 1);
+        life.SpawnAliveCell(1, 0);
+        life.SpawnAliveCell(1, 1);
+
+        life.Mutate();
+
+        life.grid.cells[0, 0].isAlive.Should().BeTrue();
+    }
 }

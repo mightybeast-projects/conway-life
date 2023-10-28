@@ -27,10 +27,9 @@ public class Life
 
     private void MutateCell(Cell cell)
     {
-        if (!cell.isAlive)
-            return;
-
         if (cell.AliveNeighbours < 2 || cell.AliveNeighbours > 3)
             nextGenerationGrid.cells[cell.i, cell.j].isAlive = false;
+        else if (!cell.isAlive && cell.AliveNeighbours == 3)
+            nextGenerationGrid.cells[cell.i, cell.j].isAlive = true;
     }
 }
