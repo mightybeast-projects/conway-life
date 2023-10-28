@@ -6,12 +6,33 @@ namespace ConwayLife.Tests;
 [TestFixture]
 public class LifeTests
 {
-    [Test]
-    public void LifeInitIsCorrect()
-    {
-        var life = new Life(10, 10);
+    private Life life;
 
+    [SetUp]
+    public void SetUp() => life = new Life(10, 10);
+
+    [Test]
+    public void LifeInit_IsCorrect()
+    {
         life.grid.width.Should().Be(10);
         life.grid.height.Should().Be(10);
+    }
+
+    [Test]
+    public void Life_CanSpawn_AliveCell()
+    {
+        life.SpawnAliveCell(0, 0);
+
+        life.grid.cells[0, 0].alive.Should().BeTrue();
+    }
+
+    [Test]
+    public void DeadLifeGrid_ShouldNot_Mutate()
+    {
+        var deadLifeGrid = life.grid;
+
+        life.Mutate();
+
+        life.grid.Should().BeEquivalentTo(deadLifeGrid);
     }
 }
