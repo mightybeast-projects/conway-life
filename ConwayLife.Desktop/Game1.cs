@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace ConwayLife.Game;
+namespace ConwayLife.Desktop;
 
 public class Game1 : Game
 {
