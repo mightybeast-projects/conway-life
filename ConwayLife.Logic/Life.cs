@@ -16,7 +16,7 @@ public class Life
 
     public void Mutate()
     {
-        nextGenerationGrid = grid;
+        nextGenerationGrid = new Grid(grid.width, grid.height);
 
         for (int i = 0; i < grid.width; i++)
             for (int j = 0; j < grid.height; j++)
@@ -27,9 +27,9 @@ public class Life
 
     private void MutateCell(Cell cell)
     {
-        if (cell.AliveNeighbours < 2 || cell.AliveNeighbours > 3)
-            nextGenerationGrid.cells[cell.i, cell.j].isAlive = false;
-        else if (!cell.isAlive && cell.AliveNeighbours == 3)
+        if (cell.LivesOn || cell.Reproducted)
             nextGenerationGrid.cells[cell.i, cell.j].isAlive = true;
+        else if (cell.IsOverpopulated || cell.IsUnderpopulated)
+            nextGenerationGrid.cells[cell.i, cell.j].isAlive = false;
     }
 }
