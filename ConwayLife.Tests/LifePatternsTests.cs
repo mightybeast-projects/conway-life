@@ -56,4 +56,53 @@ public class LifePatternsTests
 
         life.grid.Should().BeEquivalentTo(startingGrid);
     }
+
+    [Test]
+    public void Blinker_IsCorrect()
+    {
+        life.SpawnAliveCell(1, 0);
+        life.SpawnAliveCell(1, 1);
+        life.SpawnAliveCell(1, 2);
+
+        life.Mutate();
+        life.Mutate();
+
+        life.grid.Should().BeEquivalentTo(startingGrid);
+    }
+
+    [Test]
+    public void TestName()
+    {
+        life.SpawnAliveCell(0, 1);
+        life.SpawnAliveCell(0, 2);
+        life.SpawnAliveCell(1, 0);
+
+        life.SpawnAliveCell(3, 1);
+        life.SpawnAliveCell(3, 2);
+        life.SpawnAliveCell(2, 3);
+
+        life.Mutate();
+        life.Mutate();
+
+        life.grid.Should().BeEquivalentTo(startingGrid);
+    }
+
+    [Test]
+    public void Beacon_IsCorrect()
+    {
+        life.SpawnAliveCell(0, 0);
+        life.SpawnAliveCell(0, 1);
+        life.SpawnAliveCell(1, 0);
+        life.SpawnAliveCell(1, 1);
+
+        life.SpawnAliveCell(3, 2);
+        life.SpawnAliveCell(3, 3);
+        life.SpawnAliveCell(4, 2);
+        life.SpawnAliveCell(4, 3);
+
+        life.Mutate();
+        life.Mutate();
+
+        life.grid.Should().BeEquivalentTo(startingGrid);
+    }
 }
