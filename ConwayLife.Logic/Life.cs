@@ -3,6 +3,7 @@ namespace ConwayLife.Logic;
 public class Life
 {
     public Grid grid { get; private set; }
+    public int generation;
 
     private Grid nextGenerationGrid;
 
@@ -23,6 +24,8 @@ public class Life
                 MutateCell(grid.cells[i, j]);
 
         grid = nextGenerationGrid;
+
+        generation++;
     }
 
     private void MutateCell(Cell cell)

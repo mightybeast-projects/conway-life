@@ -27,6 +27,16 @@ public class LifeTests
     }
 
     [Test]
+    public void Life_ShouldHave_Generation()
+    {
+        life.generation.Should().Be(0);
+
+        life.Mutate();
+
+        life.generation.Should().Be(1);
+    }
+
+    [Test]
     public void DeadLifeGrid_ShouldNot_Mutate()
     {
         var deadLifeGrid = life.grid;
@@ -61,7 +71,7 @@ public class LifeTests
     }
 
     [Test]
-    public void Cell_ShouldBe_StillAlive()
+    public void Cell_Should_LiveOn()
     {
         life.SpawnAliveCell(0, 0);
         life.SpawnAliveCell(0, 1);
@@ -77,7 +87,7 @@ public class LifeTests
     }
 
     [Test]
-    public void Cell_ShouldBe_Alive_By_Reproduction()
+    public void Cell_ShouldBe_Reproducted()
     {
         life.SpawnAliveCell(0, 1);
         life.SpawnAliveCell(1, 0);
