@@ -14,11 +14,11 @@ public class GridTests
         grid.width.Should().Be(10);
         grid.height.Should().Be(10);
 
-        grid.tiles.GetLength(0).Should().Be(10);
-        grid.tiles.GetLength(1).Should().Be(10);
+        grid.cells.GetLength(0).Should().Be(10);
+        grid.cells.GetLength(1).Should().Be(10);
 
-        grid.tiles[0, 0].neighbours!.Should().NotBeNull();
-        grid.tiles[0, 0].neighbours!.Count.Should().Be(3);
-        grid.tiles[0, 0].neighbours!.Should().Contain(grid.tiles[0, 1]);
+        grid.cells[0, 0].neighbours!.Should().NotBeNull();
+        grid.cells[0, 0].neighbours!.Count.Should().Be(3);
+        grid.cells[0, 0].neighbours!.Should().Contain(grid.cells[0, 1]);
     }
 }

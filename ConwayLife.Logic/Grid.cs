@@ -2,7 +2,7 @@ namespace ConwayLife.Logic;
 
 public class Grid
 {
-    public readonly Tile[,] tiles;
+    public readonly Cell[,] cells;
     public readonly int width;
     public readonly int height;
 
@@ -11,44 +11,44 @@ public class Grid
         this.width = width;
         this.height = height;
 
-        tiles = new Tile[width, height];
+        cells = new Cell[width, height];
 
-        InitializeTiles();
+        InitializeCells();
     }
 
-    private void InitializeTiles()
+    private void InitializeCells()
     {
-        for (int i = 0; i < tiles.GetLength(0); i++)
-            for (int j = 0; j < tiles.GetLength(1); j++)
-                tiles[i, j] = new(i, j);
+        for (int i = 0; i < cells.GetLength(0); i++)
+            for (int j = 0; j < cells.GetLength(1); j++)
+                cells[i, j] = new(i, j);
 
-        for (int i = 0; i < tiles.GetLength(0); i++)
-            for (int j = 0; j < tiles.GetLength(1); j++)
-                AddNeighboursFor(tiles[i, j]);
+        for (int i = 0; i < cells.GetLength(0); i++)
+            for (int j = 0; j < cells.GetLength(1); j++)
+                AddNeighboursFor(cells[i, j]);
     }
 
-    private void AddNeighboursFor(Tile tile)
+    private void AddNeighboursFor(Cell cell)
     {
-        tile.neighbours = new List<Tile>();
+        cell.neighbours = new List<Cell>();
 
-        var minI = Math.Max(0, tile.i - 1);
-        var maxI = Math.Min(tile.i + 1, tiles.GetLength(0) - 1);
+        var minI = Math.Max(0, cell.i - 1);
+        var maxI = Math.Min(cell.i + 1, cells.GetLength(0) - 1);
 
-        var minJ = Math.Max(0, tile.j - 1);
-        var maxJ = Math.Min(tile.j + 1, tiles.GetLength(1) - 1);
+        var minJ = Math.Max(0, cell.j - 1);
+        var maxJ = Math.Min(cell.j + 1, cells.GetLength(1) - 1);
 
         for (int i = minI; i <= maxI; i++)
             for (int j = minJ; j <= maxJ; j++)
-                AddNeighbourFor(tile, i, j);
+                AddNeighbourFor(cell, i, j);
     }
 
-    private void AddNeighbourFor(Tile tile, int i, int j)
+    private void AddNeighbourFor(Cell cell, int i, int j)
     {
-        var neighbour = tiles[i, j];
+        var neighbour = cells[i, j];
 
-        if (neighbour == tile)
+        if (neighbour == cell)
             return;
 
-        tile.neighbours!.Add(neighbour);
+        cell.neighbours!.Add(neighbour);
     }
 }

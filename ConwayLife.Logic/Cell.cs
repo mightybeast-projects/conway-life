@@ -1,14 +1,14 @@
 namespace ConwayLife.Logic;
 
-public class Tile
+public class Cell
 {
     public readonly int i;
     public readonly int j;
     public bool alive;
 
-    internal List<Tile>? neighbours;
+    internal List<Cell>? neighbours;
 
-    public Tile(int i, int j)
+    public Cell(int i, int j)
     {
         this.i = i;
         this.j = j;
