@@ -9,7 +9,7 @@ public class TileTests
     [Test]
     public void TileInitIsCorrect()
     {
-        Tile tile = new(1, 2);
+        var tile = new Tile(1, 2);
 
         tile.i.Should().Be(1);
         tile.j.Should().Be(2);

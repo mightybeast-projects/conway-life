@@ -5,7 +5,8 @@ public class Tile
     public readonly int i;
     public readonly int j;
     public bool alive;
-    public Tile[]? neighbours;
+
+    internal List<Tile>? neighbours;
 
     public Tile(int i, int j)
     {
