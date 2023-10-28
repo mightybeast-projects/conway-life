@@ -23,7 +23,7 @@ public class LifeTests
     {
         life.SpawnAliveCell(0, 0);
 
-        life.grid.cells[0, 0].alive.Should().BeTrue();
+        life.grid.cells[0, 0].isAlive.Should().BeTrue();
     }
 
     [Test]
@@ -34,5 +34,14 @@ public class LifeTests
         life.Mutate();
 
         life.grid.Should().BeEquivalentTo(deadLifeGrid);
+    }
+
+    [Test]
+    public void Cell_ShouldDie_By_Underpopulation()
+    {
+        life.SpawnAliveCell(0, 0);
+        life.Mutate();
+
+        life.grid.cells[0, 0].isAlive.Should().BeFalse();
     }
 }

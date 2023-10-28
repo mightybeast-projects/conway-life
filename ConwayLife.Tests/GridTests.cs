@@ -7,7 +7,7 @@ namespace ConwayLife.Tests;
 public class GridTests
 {
     [Test]
-    public void GridInitIsCorrect()
+    public void GridInit_IsCorrect()
     {
         var grid = new Grid(10, 10);
 

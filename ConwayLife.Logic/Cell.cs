@@ -4,7 +4,9 @@ public class Cell
 {
     public readonly int i;
     public readonly int j;
-    public bool alive;
+    public bool isAlive;
+
+    public int AliveNeighbours => neighbours!.Count(cell => cell.isAlive);
 
     internal List<Cell>? neighbours;
 
