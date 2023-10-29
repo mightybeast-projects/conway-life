@@ -17,6 +17,10 @@ public class MainScreen : GameScreen
     {
         this.lifeGame = lifeGame;
         life = new Life(gridWidth, gridHeight);
+
+        life.SpawnAliveCell(0, 0);
+        life.SpawnAliveCell(1, 1);
+        life.SpawnAliveCell(5, 0);
     }
 
     public override void LoadContent()

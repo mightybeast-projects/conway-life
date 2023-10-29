@@ -33,6 +33,7 @@ public class LifeGrid : Grid
         Widgets.Clear();
 
         AddProportions();
+        AddCells();
     }
 
     private void AddProportions()
@@ -42,6 +43,28 @@ public class LifeGrid : Grid
 
         for (int i = 0; i < life.grid.width; i++)
             ColumnsProportions.Add(GridProportion);
+    }
+
+    private void AddCells()
+    {
+        for (int i = 0; i < life.grid.width; i++)
+            for (int j = 0; j < life.grid.height; j++)
+                AddCell(life.grid.cells[i, j]);
+    }
+
+    private void AddCell(Cell cell)
+    {
+        Widgets.Add(new Label()
+        {
+            Top = 1,
+            Left = 1,
+            GridRow = life.grid.height - 1 - cell.j,
+            GridColumn = cell.i,
+            Text = cell.isAlive ? "1" : "0",
+            Font = LifeGame.fontSystem.GetFont(24),
+            VerticalAlignment = VerticalAlignment.Center,
+            HorizontalAlignment = HorizontalAlignment.Center
+        });
     }
 
     private Proportion GridProportion => new Proportion()
