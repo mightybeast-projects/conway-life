@@ -1,3 +1,3 @@
 ﻿
-using var game = new ConwayLife.Desktop.Game1();
+using var game = new ConwayLife.Desktop.LifeGame();
 game.Run();
