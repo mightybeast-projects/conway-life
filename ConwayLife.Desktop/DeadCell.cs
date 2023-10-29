@@ -1,27 +1,14 @@
+using System;
 using ConwayLife.Logic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Myra;
-using Myra.Graphics2D.TextureAtlases;
-using Myra.Graphics2D.UI;
 
 namespace ConwayLife.Desktop;
 
-public class DeadCell : ImageButton
+public class DeadCell : GridCell
 {
-    public DeadCell(Life life, Cell cell)
-    {
-        GridRow = life.grid.height - 1 - cell.j;
-        GridColumn = cell.i;
+    protected override Color textureColor => Color.Black;
 
-        Texture2D texture = new Texture2D(MyraEnvironment.GraphicsDevice, 1, 1);
-        texture.SetData(new[] { Color.Black });
+    protected override Action onClick => () => life.SpawnCell(cell.i, cell.j);
 
-        Image = new TextureRegion(texture, new Rectangle(0, 0, 18, 18));
-
-        VerticalAlignment = VerticalAlignment.Center;
-        HorizontalAlignment = HorizontalAlignment.Center;
-
-        TouchUp += (s, a) => life.SpawnCell(cell.i, cell.j);
-    }
+    public DeadCell(Life life, Cell cell) : base(life, cell) { }
 }
