@@ -12,15 +12,19 @@ public class MainScreen : GameScreen
 
     private readonly LifeGame lifeGame;
     private readonly Life life;
+    private readonly Interval lifeMutationInterval;
 
     public MainScreen(LifeGame lifeGame) : base(lifeGame)
     {
         this.lifeGame = lifeGame;
         life = new Life(gridWidth, gridHeight);
+        lifeMutationInterval = new Interval(() => life.Mutate(), 200);
 
-        life.SpawnCell(0, 0);
+        life.SpawnCell(0, 1);
         life.SpawnCell(1, 1);
-        life.SpawnCell(5, 0);
+        life.SpawnCell(2, 1);
+        life.SpawnCell(2, 2);
+        life.SpawnCell(1, 3);
     }
 
     public override void LoadContent()
@@ -40,15 +44,10 @@ public class MainScreen : GameScreen
         lifeGame.desktop.Root = verticalStackPanel;
     }
 
-    public override void Draw(GameTime gameTime)
-    {
+    public override void Draw(GameTime gameTime) { }
 
-    }
-
-    public override void Update(GameTime gameTime)
-    {
-
-    }
+    public override void Update(GameTime gameTime) =>
+        lifeMutationInterval.Update(gameTime);
 
     private GenerationsLabel GenerationLabel => new(life)
     {
