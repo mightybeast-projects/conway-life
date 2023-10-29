@@ -1,7 +1,7 @@
-using ConwayLife.Logic;
+using ConwayLife.Logic.Main;
 using Myra.Graphics2D.UI;
 
-namespace ConwayLife.Desktop;
+namespace ConwayLife.PC.Root;
 
 public class GenerationsLabel : Label, ILifeObserver
 {

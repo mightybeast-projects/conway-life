@@ -3,10 +3,9 @@ using FontStashSharp;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Screens;
 using Myra;
+using Myra.Graphics2D.UI;
 
-namespace ConwayLife.Desktop;
-
-using Desktop = Myra.Graphics2D.UI.Desktop;
+namespace ConwayLife.PC.Root;
 
 public class LifeGame : Game
 {

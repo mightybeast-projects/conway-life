@@ -1,4 +1,4 @@
-namespace ConwayLife.Logic;
+namespace ConwayLife.Logic.Main;
 
 public class Cell : ICloneable
 {
@@ -13,10 +13,6 @@ public class Cell : ICloneable
             NotifyObserver();
         }
     }
-
-    private ICellObserver? observer;
-    private bool _isAlive;
-
     public bool IsUnderpopulated => isAlive && AliveNeighbours < 2;
     public bool IsOverpopulated => isAlive && AliveNeighbours > 3;
     public bool LivesOn =>
@@ -25,6 +21,9 @@ public class Cell : ICloneable
     public int AliveNeighbours => neighbours!.Count(cell => cell.isAlive);
 
     internal List<Cell>? neighbours;
+
+    private ICellObserver? observer;
+    private bool _isAlive;
 
     public Cell(int i, int j)
     {

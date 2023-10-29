@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 
-namespace ConwayLife.Desktop;
+namespace ConwayLife.PC.Root;
 
 public class Interval
 {

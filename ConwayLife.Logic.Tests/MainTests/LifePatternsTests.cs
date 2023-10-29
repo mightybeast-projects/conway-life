@@ -1,7 +1,7 @@
-using ConwayLife.Logic;
+using ConwayLife.Logic.Main;
 using FluentAssertions;
 
-namespace ConwayLife.Tests;
+namespace ConwayLife.Logic.Tests.MainTests;
 
 [TestFixture]
 public class LifePatternsTests

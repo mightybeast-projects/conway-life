@@ -1,4 +1,4 @@
-namespace ConwayLife.Logic;
+namespace ConwayLife.Logic.Main;
 
 public interface ICellObserver
 {

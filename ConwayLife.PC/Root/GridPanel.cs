@@ -1,4 +1,4 @@
-using ConwayLife.Logic;
+using ConwayLife.Logic.Main;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D;
 using Myra.Graphics2D.Brushes;
@@ -6,7 +6,7 @@ using Myra.Graphics2D.UI;
 
 using Grid = Myra.Graphics2D.UI.Grid;
 
-namespace ConwayLife.Desktop;
+namespace ConwayLife.PC.Root;
 
 public class LifeGrid : Grid
 {

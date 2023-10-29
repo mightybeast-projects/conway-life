@@ -1,12 +1,12 @@
 using System;
-using ConwayLife.Logic;
+using ConwayLife.Logic.Main;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra;
 using Myra.Graphics2D.TextureAtlases;
 using Myra.Graphics2D.UI;
 
-namespace ConwayLife.Desktop;
+namespace ConwayLife.PC.Root;
 
 public class GridCell : ImageButton, ICellObserver
 {

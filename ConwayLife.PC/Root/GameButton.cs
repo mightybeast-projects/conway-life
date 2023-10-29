@@ -4,7 +4,7 @@ using Myra.Graphics2D;
 using Myra.Graphics2D.Brushes;
 using Myra.Graphics2D.UI;
 
-namespace ConwayLife.Desktop;
+namespace ConwayLife.PC.Root;
 
 public class GameButton : TextButton
 {
