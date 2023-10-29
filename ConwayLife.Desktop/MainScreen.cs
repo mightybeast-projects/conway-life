@@ -18,13 +18,7 @@ public class MainScreen : GameScreen
     {
         this.lifeGame = lifeGame;
         life = new Life(gridWidth, gridHeight);
-        lifeMutationInterval = new Interval(life.Mutate, 170);
-
-        life.SpawnCell(0, 1);
-        life.SpawnCell(1, 1);
-        life.SpawnCell(2, 1);
-        life.SpawnCell(2, 2);
-        life.SpawnCell(1, 3);
+        lifeMutationInterval = new Interval(life.Mutate, 100);
     }
 
     public override void LoadContent()
