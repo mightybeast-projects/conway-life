@@ -14,6 +14,7 @@ public class ButtonsPanelWidget : HorizontalStackPanel
         Spacing = 15;
 
         Widgets.Add(PlayButton);
+        Widgets.Add(StopButton);
         Widgets.Add(StepButton);
         Widgets.Add(ClearButton);
     }
@@ -21,6 +22,11 @@ public class ButtonsPanelWidget : HorizontalStackPanel
     private GameButton PlayButton => new()
     {
         Text = "Play"
+    };
+
+    private GameButton StopButton => new()
+    {
+        Text = "Stop"
     };
 
     private GameButton StepButton => new(life.Mutate)
