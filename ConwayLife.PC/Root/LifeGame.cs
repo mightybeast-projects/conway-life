@@ -36,7 +36,7 @@ public class LifeGame : Game
 
     protected override void LoadContent()
     {
-        desktop = new Desktop();
+        desktop = new();
 
         byte[] ttfData = File.ReadAllBytes(fontPath);
         fontSystem.AddFont(ttfData);

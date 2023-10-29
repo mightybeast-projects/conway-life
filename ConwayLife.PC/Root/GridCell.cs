@@ -11,10 +11,10 @@ namespace ConwayLife.PC.Root;
 public class GridCell : ImageButton, ICellObserver
 {
     private const int size = 18;
+    private readonly Life life;
+    private readonly Cell cell;
     private Color textureColor;
     private Action onClick;
-    private Life life;
-    private Cell cell;
 
     public GridCell(Life life, Cell cell)
     {
@@ -38,7 +38,7 @@ public class GridCell : ImageButton, ICellObserver
 
     private void Update()
     {
-        if (cell.isAlive)
+        if (cell.IsAlive)
         {
             textureColor = Color.DarkOrange;
             onClick = () => life.KillCell(cell.i, cell.j);

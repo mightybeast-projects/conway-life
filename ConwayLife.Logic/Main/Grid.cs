@@ -29,7 +29,7 @@ public class Grid
 
     private void AddNeighboursFor(Cell cell)
     {
-        cell.neighbours = new List<Cell>();
+        cell.neighbours = new();
 
         var minI = Math.Max(0, cell.i - 1);
         var maxI = Math.Min(cell.i + 1, cells.GetLength(0) - 1);

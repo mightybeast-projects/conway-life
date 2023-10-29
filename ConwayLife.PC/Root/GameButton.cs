@@ -1,6 +1,5 @@
 using System;
 using Microsoft.Xna.Framework;
-using Myra.Graphics2D;
 using Myra.Graphics2D.Brushes;
 using Myra.Graphics2D.UI;
 
@@ -14,9 +13,9 @@ public class GameButton : TextButton
         Background = new SolidBrush(Color.Black);
         Font = LifeGame.fontSystem.GetFont(24);
         Border = new SolidBrush(Color.DarkOrange);
-        BorderThickness = new Thickness(2);
+        BorderThickness = new(2);
         PressedBackground = new SolidBrush(Color.Green);
-        Padding = new Thickness(5, 0);
+        Padding = new(5, 0);
 
         TouchUp += (s, a) => onClick?.Invoke();
     }

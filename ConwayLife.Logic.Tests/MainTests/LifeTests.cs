@@ -23,7 +23,7 @@ public class LifeTests
     {
         life.SpawnCell(0, 0);
 
-        life.grid.cells[0, 0].isAlive.Should().BeTrue();
+        life.grid.cells[0, 0].IsAlive.Should().BeTrue();
     }
 
     [Test]
@@ -32,7 +32,7 @@ public class LifeTests
         life.SpawnCell(0, 0);
         life.ClearGrid();
 
-        life.grid.cells[0, 0].isAlive.Should().BeFalse();
+        life.grid.cells[0, 0].IsAlive.Should().BeFalse();
     }
 
     [Test]
@@ -41,7 +41,7 @@ public class LifeTests
         life.SpawnCell(0, 0);
         life.KillCell(0, 0);
 
-        life.grid.cells[0, 0].isAlive.Should().BeFalse();
+        life.grid.cells[0, 0].IsAlive.Should().BeFalse();
     }
 
     [Test]
@@ -71,7 +71,7 @@ public class LifeTests
 
         life.Mutate();
 
-        life.grid.cells[0, 0].isAlive.Should().BeFalse();
+        life.grid.cells[0, 0].IsAlive.Should().BeFalse();
     }
 
     [Test]
@@ -85,7 +85,7 @@ public class LifeTests
 
         life.Mutate();
 
-        life.grid.cells[0, 1].isAlive.Should().BeFalse();
+        life.grid.cells[0, 1].IsAlive.Should().BeFalse();
     }
 
     [Test]
@@ -98,10 +98,10 @@ public class LifeTests
 
         life.Mutate();
 
-        life.grid.cells[0, 0].isAlive.Should().BeTrue();
-        life.grid.cells[0, 1].isAlive.Should().BeTrue();
-        life.grid.cells[1, 0].isAlive.Should().BeTrue();
-        life.grid.cells[1, 1].isAlive.Should().BeTrue();
+        life.grid.cells[0, 0].IsAlive.Should().BeTrue();
+        life.grid.cells[0, 1].IsAlive.Should().BeTrue();
+        life.grid.cells[1, 0].IsAlive.Should().BeTrue();
+        life.grid.cells[1, 1].IsAlive.Should().BeTrue();
     }
 
     [Test]
@@ -113,6 +113,6 @@ public class LifeTests
 
         life.Mutate();
 
-        life.grid.cells[0, 0].isAlive.Should().BeTrue();
+        life.grid.cells[0, 0].IsAlive.Should().BeTrue();
     }
 }

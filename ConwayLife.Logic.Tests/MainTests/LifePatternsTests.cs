@@ -117,18 +117,18 @@ public class LifePatternsTests
 
         life.Mutate();
 
-        life.grid.cells[0, 2].isAlive.Should().BeTrue();
-        life.grid.cells[1, 0].isAlive.Should().BeTrue();
-        life.grid.cells[1, 1].isAlive.Should().BeTrue();
-        life.grid.cells[2, 1].isAlive.Should().BeTrue();
-        life.grid.cells[2, 2].isAlive.Should().BeTrue();
+        life.grid.cells[0, 2].IsAlive.Should().BeTrue();
+        life.grid.cells[1, 0].IsAlive.Should().BeTrue();
+        life.grid.cells[1, 1].IsAlive.Should().BeTrue();
+        life.grid.cells[2, 1].IsAlive.Should().BeTrue();
+        life.grid.cells[2, 2].IsAlive.Should().BeTrue();
 
         life.Mutate();
 
-        life.grid.cells[0, 1].isAlive.Should().BeTrue();
-        life.grid.cells[1, 0].isAlive.Should().BeTrue();
-        life.grid.cells[2, 0].isAlive.Should().BeTrue();
-        life.grid.cells[2, 1].isAlive.Should().BeTrue();
-        life.grid.cells[2, 2].isAlive.Should().BeTrue();
+        life.grid.cells[0, 1].IsAlive.Should().BeTrue();
+        life.grid.cells[1, 0].IsAlive.Should().BeTrue();
+        life.grid.cells[2, 0].IsAlive.Should().BeTrue();
+        life.grid.cells[2, 1].IsAlive.Should().BeTrue();
+        life.grid.cells[2, 2].IsAlive.Should().BeTrue();
     }
 }

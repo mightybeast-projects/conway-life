@@ -17,8 +17,8 @@ public class MainScreen : GameScreen
     public MainScreen(LifeGame lifeGame) : base(lifeGame)
     {
         this.lifeGame = lifeGame;
-        life = new Life(gridWidth, gridHeight);
-        lifeMutationInterval = new Interval(life.Mutate, 100);
+        life = new(gridWidth, gridHeight);
+        lifeMutationInterval = new(life.Mutate, 100);
     }
 
     public override void LoadContent()

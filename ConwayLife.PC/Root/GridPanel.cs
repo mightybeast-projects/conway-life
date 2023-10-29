@@ -23,7 +23,7 @@ public class LifeGrid : Grid
         ShowGridLines = true;
         GridLinesColor = Color.DarkOrange;
         Border = new SolidBrush(Color.DarkOrange);
-        BorderThickness = new Thickness(2);
+        BorderThickness = new(2);
 
         AddProportions();
         AddCells();
@@ -45,7 +45,7 @@ public class LifeGrid : Grid
                 Widgets.Add(new GridCell(life, life.grid.cells[i, j]));
     }
 
-    private Proportion GridProportion => new Proportion()
+    private Proportion GridProportion => new()
     {
         Type = ProportionType.Pixels,
         Value = tileSize

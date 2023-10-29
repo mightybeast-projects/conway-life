@@ -13,7 +13,7 @@ public class CellTests
 
         cell.i.Should().Be(1);
         cell.j.Should().Be(2);
-        cell.isAlive.Should().BeFalse();
+        cell.IsAlive.Should().BeFalse();
         cell.neighbours.Should().BeNullOrEmpty();
     }
 

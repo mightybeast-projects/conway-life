@@ -16,9 +16,9 @@ public class Life
 
     public void Subscribe(ILifeObserver observer) => observers.Add(observer);
 
-    public void SpawnCell(int i, int j) => grid.cells[i, j].isAlive = true;
+    public void SpawnCell(int i, int j) => grid.cells[i, j].IsAlive = true;
 
-    public void KillCell(int i, int j) => grid.cells[i, j].isAlive = false;
+    public void KillCell(int i, int j) => grid.cells[i, j].IsAlive = false;
 
     public void ClearGrid()
     {
@@ -36,7 +36,7 @@ public class Life
                 MutateCell(grid.cells[i, j]);
 
         mutatedCells.ForEach(cell =>
-            grid.cells[cell.i, cell.j].isAlive = cell.isAlive);
+            grid.cells[cell.i, cell.j].IsAlive = cell.IsAlive);
 
         generation++;
 
@@ -48,11 +48,11 @@ public class Life
         var mutatedCell = (Cell)cell.Clone();
 
         if (cell.LivesOn || cell.Reproducted)
-            mutatedCell.isAlive = true;
+            mutatedCell.IsAlive = true;
         else if (cell.IsOverpopulated || cell.IsUnderpopulated)
-            mutatedCell.isAlive = false;
+            mutatedCell.IsAlive = false;
 
-        if (mutatedCell.isAlive != cell.isAlive)
+        if (mutatedCell.IsAlive != cell.IsAlive)
             mutatedCells!.Add(mutatedCell);
     }
 

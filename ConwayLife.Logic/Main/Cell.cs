@@ -4,7 +4,7 @@ public class Cell : ICloneable
 {
     public readonly int i;
     public readonly int j;
-    public bool isAlive
+    public bool IsAlive
     {
         get { return _isAlive; }
         set
@@ -13,12 +13,12 @@ public class Cell : ICloneable
             NotifyObserver();
         }
     }
-    public bool IsUnderpopulated => isAlive && AliveNeighbours < 2;
-    public bool IsOverpopulated => isAlive && AliveNeighbours > 3;
+    public bool IsUnderpopulated => IsAlive && AliveNeighbours < 2;
+    public bool IsOverpopulated => IsAlive && AliveNeighbours > 3;
     public bool LivesOn =>
-        isAlive && (AliveNeighbours == 2 || AliveNeighbours == 3);
-    public bool Reproducted => !isAlive && AliveNeighbours == 3;
-    public int AliveNeighbours => neighbours!.Count(cell => cell.isAlive);
+        IsAlive && (AliveNeighbours == 2 || AliveNeighbours == 3);
+    public bool Reproducted => !IsAlive && AliveNeighbours == 3;
+    public int AliveNeighbours => neighbours!.Count(cell => cell.IsAlive);
 
     internal List<Cell>? neighbours;
 
