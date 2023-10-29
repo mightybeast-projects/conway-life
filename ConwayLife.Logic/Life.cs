@@ -6,7 +6,7 @@ public class Life
     public int generation;
 
     private readonly List<ILifeObserver> observers;
-    private Grid? nextGenerationGrid;
+    private List<Cell>? mutatedCells;
 
     public Life(int gridWidth, int gridHeight)
     {
@@ -29,13 +29,14 @@ public class Life
 
     public void Mutate()
     {
-        nextGenerationGrid = new Grid(grid.width, grid.height);
+        mutatedCells = new List<Cell>();
 
         for (int i = 0; i < grid.width; i++)
             for (int j = 0; j < grid.height; j++)
                 MutateCell(grid.cells[i, j]);
 
-        grid = nextGenerationGrid;
+        mutatedCells.ForEach(cell =>
+            grid.cells[cell.i, cell.j].isAlive = cell.isAlive);
 
         generation++;
 
@@ -44,10 +45,15 @@ public class Life
 
     private void MutateCell(Cell cell)
     {
+        var mutatedCell = (Cell)cell.Clone();
+
         if (cell.LivesOn || cell.Reproducted)
-            nextGenerationGrid!.cells[cell.i, cell.j].isAlive = true;
+            mutatedCell.isAlive = true;
         else if (cell.IsOverpopulated || cell.IsUnderpopulated)
-            nextGenerationGrid!.cells[cell.i, cell.j].isAlive = false;
+            mutatedCell.isAlive = false;
+
+        if (mutatedCell.isAlive != cell.isAlive)
+            mutatedCells!.Add(mutatedCell);
     }
 
     private void NotifyObservers() => observers.ForEach(o => o.Notify());

@@ -1,6 +1,6 @@
 namespace ConwayLife.Logic;
 
-public class Cell
+public class Cell : ICloneable
 {
     public readonly int i;
     public readonly int j;
@@ -35,4 +35,6 @@ public class Cell
     public void Subscribe(ICellObserver observer) => this.observer = observer;
 
     private void NotifyObserver() => observer?.Notify();
+
+    public object Clone() => MemberwiseClone();
 }
