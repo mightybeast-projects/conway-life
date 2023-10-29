@@ -16,25 +16,15 @@ public class Life
 
     public void Subscribe(ILifeObserver observer) => observers.Add(observer);
 
-    public void SpawnCell(int i, int j)
-    {
-        grid.cells[i, j].isAlive = true;
+    public void SpawnCell(int i, int j) => grid.cells[i, j].isAlive = true;
 
-        NotifyObservers();
-    }
-
-    public void KillCell(int i, int j)
-    {
-        grid.cells[i, j].isAlive = false;
-
-        NotifyObservers();
-    }
+    public void KillCell(int i, int j) => grid.cells[i, j].isAlive = false;
 
     public void ClearGrid()
     {
-        grid = new(grid.width, grid.height);
-
-        NotifyObservers();
+        for (int i = 0; i < grid.width; i++)
+            for (int j = 0; j < grid.height; j++)
+                KillCell(i, j);
     }
 
     public void Mutate()
