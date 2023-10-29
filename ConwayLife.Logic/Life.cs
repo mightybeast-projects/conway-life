@@ -5,15 +5,14 @@ public class Life
     public Grid grid { get; private set; }
     public int generation;
 
-    private Grid nextGenerationGrid;
+    private Grid? nextGenerationGrid;
 
-    public Life(int gridWidth, int gridHeight)
-    {
+    public Life(int gridWidth, int gridHeight) =>
         grid = new(gridWidth, gridHeight);
-        nextGenerationGrid = grid;
-    }
 
     public void SpawnAliveCell(int i, int j) => grid.cells[i, j].isAlive = true;
+
+    public void ClearGrid() => grid = new(grid.width, grid.height);
 
     public void Mutate()
     {
@@ -31,8 +30,8 @@ public class Life
     private void MutateCell(Cell cell)
     {
         if (cell.LivesOn || cell.Reproducted)
-            nextGenerationGrid.cells[cell.i, cell.j].isAlive = true;
+            nextGenerationGrid!.cells[cell.i, cell.j].isAlive = true;
         else if (cell.IsOverpopulated || cell.IsUnderpopulated)
-            nextGenerationGrid.cells[cell.i, cell.j].isAlive = false;
+            nextGenerationGrid!.cells[cell.i, cell.j].isAlive = false;
     }
 }
