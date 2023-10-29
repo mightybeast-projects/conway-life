@@ -15,11 +15,7 @@ public class MainScreen : GameScreen
     {
         base.LoadContent();
 
-        lifeGame.desktop.Root = new Label()
-        {
-            Text = "Hello",
-            Font = LifeGame.fontSystem.GetFont(24)
-        };
+        lifeGame.desktop.Root = ButtonsPanel;
     }
 
     public override void Draw(GameTime gameTime)
@@ -31,4 +27,6 @@ public class MainScreen : GameScreen
     {
 
     }
+
+    private ButtonsPanelWidget ButtonsPanel => new();
 }
