@@ -1,3 +1,4 @@
+using ConwayLife.Logic;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended.Screens;
 using Myra.Graphics2D.UI;
@@ -6,10 +7,16 @@ namespace ConwayLife.Desktop;
 
 public class MainScreen : GameScreen
 {
+    public const int gridWidth = 50;
+    public const int gridHeight = 25;
     private readonly LifeGame lifeGame;
+    private readonly Life life;
 
-    public MainScreen(LifeGame lifeGame) : base(lifeGame) =>
+    public MainScreen(LifeGame lifeGame) : base(lifeGame)
+    {
         this.lifeGame = lifeGame;
+        life = new Life(gridWidth, gridHeight);
+    }
 
     public override void LoadContent()
     {
@@ -51,7 +58,7 @@ public class MainScreen : GameScreen
         VerticalAlignment = VerticalAlignment.Center
     };
 
-    private ButtonsPanelWidget ButtonsPanel => new()
+    private ButtonsPanelWidget ButtonsPanel => new(life)
     {
         HorizontalAlignment = HorizontalAlignment.Center,
         VerticalAlignment = VerticalAlignment.Center

@@ -1,11 +1,16 @@
+using ConwayLife.Logic;
 using Myra.Graphics2D.UI;
 
 namespace ConwayLife.Desktop;
 
 public class ButtonsPanelWidget : HorizontalStackPanel
 {
-    public ButtonsPanelWidget()
+    private readonly Life life;
+
+    public ButtonsPanelWidget(Life life)
     {
+        this.life = life;
+
         Spacing = 15;
 
         Widgets.Add(PlayButton);
@@ -18,7 +23,7 @@ public class ButtonsPanelWidget : HorizontalStackPanel
         Text = "Play"
     };
 
-    private GameButton StepButton => new()
+    private GameButton StepButton => new(life.Mutate)
     {
         Text = "Step"
     };
