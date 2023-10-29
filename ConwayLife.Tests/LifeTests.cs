@@ -19,9 +19,9 @@ public class LifeTests
     }
 
     [Test]
-    public void Life_CanSpawn_AliveCell()
+    public void Life_CanSpawnCell()
     {
-        life.SpawnAliveCell(0, 0);
+        life.SpawnCell(0, 0);
 
         life.grid.cells[0, 0].isAlive.Should().BeTrue();
     }
@@ -29,7 +29,7 @@ public class LifeTests
     [Test]
     public void Life_CanClearGrid()
     {
-        life.SpawnAliveCell(0, 0);
+        life.SpawnCell(0, 0);
         life.ClearGrid();
 
         life.grid.cells[0, 0].isAlive.Should().BeFalse();
@@ -38,7 +38,7 @@ public class LifeTests
     [Test]
     public void Life_CanKillCell()
     {
-        life.SpawnAliveCell(0, 0);
+        life.SpawnCell(0, 0);
         life.KillCell(0, 0);
 
         life.grid.cells[0, 0].isAlive.Should().BeFalse();
@@ -67,7 +67,7 @@ public class LifeTests
     [Test]
     public void Cell_ShouldDie_By_Underpopulation()
     {
-        life.SpawnAliveCell(0, 0);
+        life.SpawnCell(0, 0);
 
         life.Mutate();
 
@@ -77,11 +77,11 @@ public class LifeTests
     [Test]
     public void Cell_ShouldDie_By_Overpopulation()
     {
-        life.SpawnAliveCell(0, 0);
-        life.SpawnAliveCell(0, 1);
-        life.SpawnAliveCell(0, 2);
-        life.SpawnAliveCell(1, 0);
-        life.SpawnAliveCell(1, 1);
+        life.SpawnCell(0, 0);
+        life.SpawnCell(0, 1);
+        life.SpawnCell(0, 2);
+        life.SpawnCell(1, 0);
+        life.SpawnCell(1, 1);
 
         life.Mutate();
 
@@ -91,10 +91,10 @@ public class LifeTests
     [Test]
     public void Cell_Should_LiveOn()
     {
-        life.SpawnAliveCell(0, 0);
-        life.SpawnAliveCell(0, 1);
-        life.SpawnAliveCell(1, 0);
-        life.SpawnAliveCell(1, 1);
+        life.SpawnCell(0, 0);
+        life.SpawnCell(0, 1);
+        life.SpawnCell(1, 0);
+        life.SpawnCell(1, 1);
 
         life.Mutate();
 
@@ -107,9 +107,9 @@ public class LifeTests
     [Test]
     public void Cell_ShouldBe_Reproducted()
     {
-        life.SpawnAliveCell(0, 1);
-        life.SpawnAliveCell(1, 0);
-        life.SpawnAliveCell(1, 1);
+        life.SpawnCell(0, 1);
+        life.SpawnCell(1, 0);
+        life.SpawnCell(1, 1);
 
         life.Mutate();
 

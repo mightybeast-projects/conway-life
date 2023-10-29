@@ -22,7 +22,7 @@ public class CellTests
     {
         var life = new Life(10, 10);
 
-        life.SpawnAliveCell(0, 1);
+        life.SpawnCell(0, 1);
 
         life.grid.cells[0, 0].AliveNeighbours.Should().Be(1);
     }
