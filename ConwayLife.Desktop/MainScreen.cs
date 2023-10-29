@@ -15,7 +15,17 @@ public class MainScreen : GameScreen
     {
         base.LoadContent();
 
-        lifeGame.desktop.Root = ButtonsPanel;
+        VerticalStackPanel verticalStackPanel = new()
+        {
+            Spacing = 20,
+            VerticalAlignment = VerticalAlignment.Center
+        };
+
+        verticalStackPanel.Widgets.Add(GenerationLabel);
+        verticalStackPanel.Widgets.Add(GridPanel);
+        verticalStackPanel.Widgets.Add(ButtonsPanel);
+
+        lifeGame.desktop.Root = verticalStackPanel;
     }
 
     public override void Draw(GameTime gameTime)
@@ -28,5 +38,22 @@ public class MainScreen : GameScreen
 
     }
 
-    private ButtonsPanelWidget ButtonsPanel => new();
+    private Label GenerationLabel => new()
+    {
+        Text = "Generation : 0",
+        Font = LifeGame.fontSystem.GetFont(36),
+        HorizontalAlignment = HorizontalAlignment.Center
+    };
+
+    private GridPanel GridPanel => new()
+    {
+        HorizontalAlignment = HorizontalAlignment.Center,
+        VerticalAlignment = VerticalAlignment.Center
+    };
+
+    private ButtonsPanelWidget ButtonsPanel => new()
+    {
+        HorizontalAlignment = HorizontalAlignment.Center,
+        VerticalAlignment = VerticalAlignment.Center
+    };
 }
