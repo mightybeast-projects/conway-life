@@ -54,17 +54,10 @@ public class LifeGrid : Grid
 
     private void AddCell(Cell cell)
     {
-        Widgets.Add(new Label()
-        {
-            Top = 1,
-            Left = 1,
-            GridRow = life.grid.height - 1 - cell.j,
-            GridColumn = cell.i,
-            Text = cell.isAlive ? "1" : "0",
-            Font = LifeGame.fontSystem.GetFont(24),
-            VerticalAlignment = VerticalAlignment.Center,
-            HorizontalAlignment = HorizontalAlignment.Center
-        });
+        if (cell.isAlive)
+            Widgets.Add(new AliveCell(life, cell));
+        else
+            Widgets.Add(new DeadCell(life, cell));
     }
 
     private Proportion GridProportion => new Proportion()
