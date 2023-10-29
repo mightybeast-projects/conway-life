@@ -1,18 +1,27 @@
+using ConwayLife.Logic;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D;
 using Myra.Graphics2D.Brushes;
 using Myra.Graphics2D.UI;
 
+using Grid = Myra.Graphics2D.UI.Grid;
+
 namespace ConwayLife.Desktop;
 
-public class GridPanel : Panel
+public class LifeGrid : Grid
 {
-    private Grid mainGrid;
+    private const int tileSize = 20;
+    private readonly Life life;
 
-    public GridPanel()
+    public LifeGrid(Life life)
     {
-        Width = 1000 + 3;
-        Height = 500 + 3;
+        this.life = life;
+
+        Width = life.grid.width * tileSize + 3;
+        Height = life.grid.height * tileSize + 3;
+
+        ShowGridLines = true;
+        GridLinesColor = Color.DarkOrange;
         Border = new SolidBrush(Color.DarkOrange);
         BorderThickness = new Thickness(2);
 
@@ -23,35 +32,21 @@ public class GridPanel : Panel
     {
         Widgets.Clear();
 
-        mainGrid = new Grid()
-        {
-            ShowGridLines = true,
-            GridLinesColor = Color.DarkOrange
-        };
-
-        AddGridProportions();
-
-        Widgets.Add(mainGrid);
+        AddProportions();
     }
 
-    private void AddGridProportions()
+    private void AddProportions()
     {
-        for (int i = 0; i < 25; i++)
-            mainGrid.RowsProportions.Add(WidthProportion);
+        for (int i = 0; i < life.grid.height; i++)
+            RowsProportions.Add(GridProportion);
 
-        for (int i = 0; i < 50; i++)
-            mainGrid.ColumnsProportions.Add(HeightProportion);
+        for (int i = 0; i < life.grid.width; i++)
+            ColumnsProportions.Add(GridProportion);
     }
 
-    private Proportion WidthProportion => new Proportion()
+    private Proportion GridProportion => new Proportion()
     {
         Type = ProportionType.Pixels,
-        Value = 20
-    };
-
-    private Proportion HeightProportion => new Proportion()
-    {
-        Type = ProportionType.Pixels,
-        Value = 20
+        Value = tileSize
     };
 }

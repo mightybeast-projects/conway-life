@@ -9,6 +9,7 @@ public class MainScreen : GameScreen
 {
     public const int gridWidth = 50;
     public const int gridHeight = 25;
+
     private readonly LifeGame lifeGame;
     private readonly Life life;
 
@@ -52,7 +53,7 @@ public class MainScreen : GameScreen
         HorizontalAlignment = HorizontalAlignment.Center
     };
 
-    private GridPanel GridPanel => new()
+    private LifeGrid GridPanel => new(life)
     {
         HorizontalAlignment = HorizontalAlignment.Center,
         VerticalAlignment = VerticalAlignment.Center

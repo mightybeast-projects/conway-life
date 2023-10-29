@@ -28,7 +28,7 @@ public class ButtonsPanelWidget : HorizontalStackPanel
         Text = "Step"
     };
 
-    private GameButton ClearButton => new()
+    private GameButton ClearButton => new(life.ClearGrid)
     {
         Text = "Clear"
     };
