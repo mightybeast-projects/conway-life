@@ -5,16 +5,37 @@ public class Life
     public Grid grid { get; private set; }
     public int generation;
 
+    private readonly List<ILifeObserver> observers;
     private Grid? nextGenerationGrid;
 
-    public Life(int gridWidth, int gridHeight) =>
+    public Life(int gridWidth, int gridHeight)
+    {
         grid = new(gridWidth, gridHeight);
+        observers = new();
+    }
 
-    public void SpawnCell(int i, int j) => grid.cells[i, j].isAlive = true;
+    public void Subscribe(ILifeObserver observer) => observers.Add(observer);
 
-    public void KillCell(int i, int j) => grid.cells[i, j].isAlive = false;
+    public void SpawnCell(int i, int j)
+    {
+        grid.cells[i, j].isAlive = true;
 
-    public void ClearGrid() => grid = new(grid.width, grid.height);
+        NotifyObservers();
+    }
+
+    public void KillCell(int i, int j)
+    {
+        grid.cells[i, j].isAlive = false;
+
+        NotifyObservers();
+    }
+
+    public void ClearGrid()
+    {
+        grid = new(grid.width, grid.height);
+
+        NotifyObservers();
+    }
 
     public void Mutate()
     {
@@ -27,6 +48,8 @@ public class Life
         grid = nextGenerationGrid;
 
         generation++;
+
+        NotifyObservers();
     }
 
     private void MutateCell(Cell cell)
@@ -36,4 +59,6 @@ public class Life
         else if (cell.IsOverpopulated || cell.IsUnderpopulated)
             nextGenerationGrid!.cells[cell.i, cell.j].isAlive = false;
     }
+
+    private void NotifyObservers() => observers.ForEach(o => o.Notify());
 }
