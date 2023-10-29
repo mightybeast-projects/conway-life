@@ -5,7 +5,7 @@ namespace ConwayLife.Desktop;
 
 public class Interval
 {
-    public bool isActive = true;
+    public bool isActive;
 
     private readonly Action Action;
     private readonly float interval;
@@ -16,6 +16,10 @@ public class Interval
         Action = action;
         this.interval = interval;
     }
+
+    public void Start() => isActive = true;
+
+    public void Stop() => isActive = false;
 
     public void Update(GameTime gameTime)
     {

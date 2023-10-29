@@ -18,7 +18,7 @@ public class MainScreen : GameScreen
     {
         this.lifeGame = lifeGame;
         life = new Life(gridWidth, gridHeight);
-        lifeMutationInterval = new Interval(() => life.Mutate(), 200);
+        lifeMutationInterval = new Interval(life.Mutate, 170);
 
         life.SpawnCell(0, 1);
         life.SpawnCell(1, 1);
@@ -60,7 +60,7 @@ public class MainScreen : GameScreen
         VerticalAlignment = VerticalAlignment.Center
     };
 
-    private ButtonsPanelWidget ButtonsPanel => new(life)
+    private ButtonsPanelWidget ButtonsPanel => new(life, lifeMutationInterval)
     {
         HorizontalAlignment = HorizontalAlignment.Center,
         VerticalAlignment = VerticalAlignment.Center

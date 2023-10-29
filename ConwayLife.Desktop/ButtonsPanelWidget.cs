@@ -6,10 +6,12 @@ namespace ConwayLife.Desktop;
 public class ButtonsPanelWidget : HorizontalStackPanel
 {
     private readonly Life life;
+    private readonly Interval lifeMutationInterval;
 
-    public ButtonsPanelWidget(Life life)
+    public ButtonsPanelWidget(Life life, Interval lifeMutationInterval)
     {
         this.life = life;
+        this.lifeMutationInterval = lifeMutationInterval;
 
         Spacing = 15;
 
@@ -19,12 +21,12 @@ public class ButtonsPanelWidget : HorizontalStackPanel
         Widgets.Add(ClearButton);
     }
 
-    private GameButton PlayButton => new()
+    private GameButton PlayButton => new(lifeMutationInterval.Start)
     {
         Text = "Play"
     };
 
-    private GameButton StopButton => new()
+    private GameButton StopButton => new(lifeMutationInterval.Stop)
     {
         Text = "Stop"
     };
