@@ -36,6 +36,15 @@ public class LifeTests
     }
 
     [Test]
+    public void Life_CanKillCell()
+    {
+        life.SpawnAliveCell(0, 0);
+        life.KillCell(0, 0);
+
+        life.grid.cells[0, 0].isAlive.Should().BeFalse();
+    }
+
+    [Test]
     public void Life_ShouldHave_Generation()
     {
         life.generation.Should().Be(0);

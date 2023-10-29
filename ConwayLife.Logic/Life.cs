@@ -12,6 +12,8 @@ public class Life
 
     public void SpawnAliveCell(int i, int j) => grid.cells[i, j].isAlive = true;
 
+    public void KillCell(int i, int j) => grid.cells[i, j].isAlive = false;
+
     public void ClearGrid() => grid = new(grid.width, grid.height);
 
     public void Mutate()
