@@ -36,6 +36,8 @@ public class MainScreen : GameScreen
         verticalStackPanel.Widgets.Add(ButtonsPanel);
 
         lifeGame.desktop.Root = verticalStackPanel;
+
+        new PatternSpawner(life).SpawnStarterPatterns();
     }
 
     public override void Draw(GameTime gameTime) { }
