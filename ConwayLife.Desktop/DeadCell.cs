@@ -17,9 +17,11 @@ public class DeadCell : ImageButton
         Texture2D texture = new Texture2D(MyraEnvironment.GraphicsDevice, 1, 1);
         texture.SetData(new[] { Color.Black });
 
-        Image = new TextureRegion(texture, new Rectangle(0, 0, 20, 20));
+        Image = new TextureRegion(texture, new Rectangle(0, 0, 18, 18));
 
         VerticalAlignment = VerticalAlignment.Center;
         HorizontalAlignment = HorizontalAlignment.Center;
+
+        TouchUp += (s, a) => life.SpawnCell(cell.i, cell.j);
     }
 }

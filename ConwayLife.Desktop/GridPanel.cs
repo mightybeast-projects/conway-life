@@ -8,7 +8,7 @@ using Grid = Myra.Graphics2D.UI.Grid;
 
 namespace ConwayLife.Desktop;
 
-public class LifeGrid : Grid
+public class LifeGrid : Grid, ILifeObserver
 {
     private const int tileSize = 20;
     private readonly Life life;
@@ -16,6 +16,7 @@ public class LifeGrid : Grid
     public LifeGrid(Life life)
     {
         this.life = life;
+        life.Subscribe(this);
 
         Width = life.grid.width * tileSize + 3;
         Height = life.grid.height * tileSize + 3;
@@ -25,14 +26,17 @@ public class LifeGrid : Grid
         Border = new SolidBrush(Color.DarkOrange);
         BorderThickness = new Thickness(2);
 
+        AddProportions();
+
         UpdateContent();
     }
+
+    public void Notify() => UpdateContent();
 
     private void UpdateContent()
     {
         Widgets.Clear();
 
-        AddProportions();
         AddCells();
     }
 
