@@ -46,10 +46,8 @@ public class MainScreen : GameScreen
 
     }
 
-    private Label GenerationLabel => new()
+    private GenerationsLabel GenerationLabel => new(life)
     {
-        Text = "Generation : 0",
-        Font = LifeGame.fontSystem.GetFont(36),
         HorizontalAlignment = HorizontalAlignment.Center
     };
 
