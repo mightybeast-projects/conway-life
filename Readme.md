@@ -1,7 +1,7 @@
 # 🧬 **Conway's Game of Life**
 
-<img src="ConwayLife.PC\demo_1.gif" height="300">
-<img src="ConwayLife.PC\demo_2.gif" height="300">
+<img src="ConwayLife.PC\demo_1.gif" height="500">
+<img src="ConwayLife.PC\demo_2.gif" height="500">
 
 ## 🔧 Developed using ##
 [![MonoGame](https://img.shields.io/badge/MonoGame-black?style=for-the-badge&logo=monogame&logoColor=black&labelColor=orange)](#)
